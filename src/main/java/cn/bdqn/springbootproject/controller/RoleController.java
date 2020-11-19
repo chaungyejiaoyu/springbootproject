@@ -7,10 +7,12 @@ import cn.bdqn.springbootproject.service.RoleServiceImpl;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,5 +66,21 @@ public class RoleController {
         int rel = rser.updateRole1(role);
         System.out.println(rel==1?"修改成功":"修改失败");
         return "redirect:/allRole";
+    }
+
+    //显示添加页面
+    @RequestMapping("/showAdd")
+    public String addRole(Model model){
+        model.addAttribute("role",new Role());
+        return "addRole";
+    }
+    //处理添加
+    @RequestMapping("/addRole")
+    public String addRole(@Valid Role role, BindingResult result){
+        if(result.hasErrors()){
+            return "addRole";
+        }
+        System.out.println(role.getRoleName());
+        return "redirect:/getAllRole";
     }
 }

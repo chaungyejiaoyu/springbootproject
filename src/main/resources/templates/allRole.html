@@ -5,6 +5,7 @@
     <title>角色列表</title>
 </head>
 <body>
+<a href="@{showAdd}"> 添加</a><br>
 角色列表信息：
 <table>
     <tr>
@@ -12,6 +13,7 @@
         <td>名称</td>
         <td>操作</td>
     </tr>
+
     <tr th:each="r:${roleList}">
         <td th:text="${r.roleCode}">编号</td>
         <td th:text="${r.roleName}">名称</td>

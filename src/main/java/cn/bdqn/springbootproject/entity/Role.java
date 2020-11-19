@@ -1,13 +1,18 @@
 package cn.bdqn.springbootproject.entity;
 
+import org.apache.logging.log4j.message.Message;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.annotation.processing.Messager;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 
 public class Role {
     private Integer id;
+    @NotEmpty(message = "姓名不能为空")
     private String roleName;
+    @NotEmpty(message="编号不能为空")
     private  String roleCode;
     private Integer createdBy;
     private Date creationDate;
