@@ -11,4 +11,9 @@ public interface RoleDao {
     int updateRole(@Param("id") Integer id, @Param("roleName") String roleName, @Param("modifyDate")Date modifyDate);
     int updateRole1(Role role);
     Role findRole(Integer id);
+    List<Role> findRolePaging(@Param("from") Integer from,
+                              @Param("pageSize")Integer pageSize,
+                              @Param("roleName") String roleName);
+    int findRoleCount(@Param("roleName") String roleName);
+
 }

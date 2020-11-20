@@ -6,11 +6,13 @@
 </head>
 <body>
     
-    <form action="addRole" method="post">
+    <form action="addRole" method="post" enctype="multipart/form-data">
         角色编号：
             <input type="text" name="roleCode"><span th:errors="${role.roleCode}"></span><br>
         角色名：
             <input type="text" name="roleName"><span th:errors="${role.roleName}"></span><br>
+        图片：
+            <input type="file" name="myPic"/>
         <input type="submit" value="添加">
     </form>
 </body>

@@ -11,4 +11,6 @@ public interface RoleService {
     int updateRole(Integer id, String roleName, Date modifyDate);
     int updateRole1(Role role);
     Role findRole(Integer id);
+    List<Role> findRolePaging(Integer from,Integer pageSize,String roleName);
+    int findRoleCount(String roleName);
 }

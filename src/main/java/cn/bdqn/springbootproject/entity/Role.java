@@ -19,6 +19,7 @@ public class Role {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date modifyDate;
 
+
     public Date getModifyDate() {
         return modifyDate;
     }

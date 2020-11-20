@@ -32,4 +32,22 @@
             id=#{id}
         </where>
     </select>
+
+    <select id="findRoleCount" resultType="int" parameterType="String">
+        select count(1) from smbms_role
+        <where>
+            <if test="roleName!=null and roleName!=''">
+                roleName like CONCAT("%",#{roleName},"%")
+            </if>
+        </where>
+    </select>
+    <select id="findRolePaging" resultType="Role">
+        select * from smbms_role
+        <where>
+            <if test="roleName!=null and roleName!=''">
+                roleName like CONCAT("%",#{roleName},"%")
+            </if>
+        </where>
+        limit #{from},#{pageSize}
+    </select>
 </mapper>

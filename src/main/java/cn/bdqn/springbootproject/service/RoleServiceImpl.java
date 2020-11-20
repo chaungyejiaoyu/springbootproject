@@ -31,4 +31,14 @@ public class RoleServiceImpl implements RoleService{
     public Role findRole(Integer id) {
         return rdao.findRole(id);
     }
+
+    @Override
+    public List<Role> findRolePaging(Integer from, Integer pageSize, String roleName) {
+        return rdao.findRolePaging(from, pageSize, roleName);
+    }
+
+    @Override
+    public int findRoleCount(String roleName) {
+        return rdao.findRoleCount(roleName);
+    }
 }
